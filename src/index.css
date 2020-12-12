@@ -1,3 +1,5 @@
+/* Navbar Styling Beginning */
+
 .mainnavbar_search {
   width: 40vw !important;
   border-radius: 25px !important;
@@ -71,4 +73,35 @@
   color: white !important;
   margin-bottom: -3px !important;
 
+}
+
+/* Homepage Gallery View */
+
+.maingallery_row {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0 25vw;
+}
+
+.maingallery_column {
+  flex: 33.3%;
+  max-width: 33.3%;
+  padding: 0 5px;
+}
+
+.maingallery_column img {
+  margin-top: 8px;
+  vertical-align: middle;
+  width: 100%;
+}
+
+
+@media screen and (max-width: 1200px) {
+  .maingallery_column {
+    flex: 100%;
+    max-width: 100%;
+  }
+  .maingallery_row {
+    padding: 0 5vw;
+  }
 }
