@@ -1,4 +1,7 @@
 import React from 'react'
+import "bootstrap/js/src/collapse.js";
+import "bootstrap/dist/js/bootstrap.min.js";
+
 
 
 class MainNavbar extends React.Component {
@@ -11,7 +14,7 @@ class MainNavbar extends React.Component {
                     <a className="navbar-brand" href="#  ">
                         <img src="/site_elements/logo.png" width="30" height="30" className="d-inline-block align-top" alt="" />
                     </a>
-                    <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="# navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <span className="navbar-toggler-icon"></span>
                     </button>
 
@@ -51,6 +54,39 @@ class MainNavbar extends React.Component {
                         </ul>
                     </div>
                 </nav>
+
+                <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                    <a class="navbar-brand" href="#">Editorial</a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                        <span>View Tags</span>
+                    </button>
+
+                    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                        <div class="navbar-nav">
+                            <a class="nav-item nav-link" href="# ">Wallpapers</a>
+                            <a class="nav-item nav-link" href="# ">Nature</a>
+                            <a class="nav-item nav-link" href="# ">People</a>
+                            <a class="nav-item nav-link" href="# ">Architecture</a>
+                            <a class="nav-item nav-link" href="# ">Current Events</a>
+                            <a class="nav-item nav-link" href="# ">Experimental</a>
+                            <a class="nav-item nav-link" href="# ">Fashion</a>
+                            <a class="nav-item nav-link" href="# ">Film</a>
+                            <a class="nav-item nav-link" href="# ">Health & Wellness</a>
+                            <a class="nav-item nav-link" href="# ">Interiors</a>
+                            <a class="nav-item nav-link" href="# ">Street Photography</a>
+                            <a class="nav-item nav-link" href="# ">Technology</a>
+                            <a class="nav-item nav-link" href="# ">Travel</a>
+                            <a class="nav-item nav-link" href="# ">Textures & Patterns</a>
+                            <a class="nav-item nav-link" href="# ">Business & Work</a>
+                            <a class="nav-item nav-link" href="# ">Animals</a>
+                            <a class="nav-item nav-link" href="# ">Food & Drink</a>
+                            <a class="nav-item nav-link" href="# ">Athletics</a>
+
+                        </div>
+                    </div>
+
+                </nav>
+
 
 
 
