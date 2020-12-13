@@ -105,3 +105,41 @@
     padding: 0 5vw;
   }
 }
+
+/* Gallery Modal Styling */
+
+.gallery_model_image {
+  width: 100%;
+  object-fit: contain;
+}
+
+.gallery_modal_username {
+  padding-left: 10px;
+  font-size: 1.3rem !important;
+}
+
+
+
+.gallery_modal_info_date {
+  text-align: left !important;
+  margin-left: 0 !important;
+  padding-left: 0 !important;
+  color: gray;
+}
+
+.gallery_modal_info_row {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 20px 50px;
+}
+
+.gallery_modal_info_column {
+  flex: 33%;
+  max-width: 33%;
+  padding: 20px 35px;
+  
+}
+
+.gallery_modal_info_column > p {
+  font-size: .9rem;
+}
