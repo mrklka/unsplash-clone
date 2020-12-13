@@ -35,6 +35,9 @@
 .navbar-toggler-icon {
   width: 20px !important;
 }
+.login_avatar {
+margin-top: -4px !important;
+}
 
 /* Jumbotron Styling Beginning */
 
@@ -142,4 +145,33 @@
 
 .gallery_modal_info_column > p {
   font-size: .9rem;
+}
+
+#dropdown-basic::after{
+  display: none !important; 
+}
+
+
+/* Upload Modal Styling  */
+  
+.upload_modal_body {
+  height: 70vh;
+}
+
+.upload_modal_body_prompt {
+  padding-top: 50%;
+  text-align: center;
+}
+
+.upload_modal_body_prompt > img {
+  object-fit: contain;
+}
+
+.upload_modal_body_prompt > p  {
+  font-size: 1.5rem;
+  font-weight:800;
+}
+
+.upload_modal_body_prompt > p > span {
+  color: rgb(66, 127, 241) ;
 }

@@ -1,14 +1,13 @@
 import React, { useState } from 'react'
 import { Button, Modal } from "react-bootstrap"
 function MainGallery({ username, imageUrl, timestamp }) {
-
+    //Main Modal Handle
     const [show, setShow] = useState(false);
-
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
+    //Info Modal Handle
     const [showInfo, setShowInfo] = useState(false);
-
     const handleCloseInfo = () => setShowInfo(false);
     const handleShowInfo = () => setShowInfo(true);
 
