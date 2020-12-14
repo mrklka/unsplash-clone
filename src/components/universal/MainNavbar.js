@@ -3,6 +3,11 @@ import "bootstrap/js/src/collapse.js";
 import "bootstrap/dist/js/bootstrap.min.js";
 import { auth } from '../../firebase'
 import { Button, Modal, Form } from "react-bootstrap"
+import UploadComp from '../homepage/UploadComp';
+import {
+
+    Link
+} from "react-router-dom";
 
 
 
@@ -64,9 +69,9 @@ function MainNavbar() {
     return (
         <div>
             <nav className="navbar navbar-expand-lg navbar-light bg-light justify-content-between">
-                <a className="navbar-brand" href="#  ">
+                <Link to="/" className="navbar-brand"  >
                     <img src="/site_elements/logo.png" width="30" height="30" className="d-inline-block align-top" alt="" />
-                </a>
+                </Link>
                 <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
                 </button>
@@ -140,7 +145,7 @@ function MainNavbar() {
 
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
                 <div class="navbar-nav">
-                    <a class="nav-item nav-link active" href="# ">Editorial</a>
+                    <Link to="/" class="nav-item nav-link" >Editorial</Link>
                 </div>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                     <span>View Tags</span>
@@ -148,24 +153,12 @@ function MainNavbar() {
 
                 <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                     <div class="navbar-nav">
-                        <a class="nav-item nav-link" href="# ">Wallpapers</a>
-                        <a class="nav-item nav-link" href="# ">Nature</a>
-                        <a class="nav-item nav-link" href="# ">People</a>
-                        <a class="nav-item nav-link" href="# ">Architecture</a>
-                        <a class="nav-item nav-link" href="# ">Experimental</a>
-                        <a class="nav-item nav-link" href="# ">Fashion</a>
-                        <a class="nav-item nav-link" href="# ">Film</a>
-                        <a class="nav-item nav-link" href="# ">Health</a>
-                        <a class="nav-item nav-link" href="# ">Interiors</a>
-                        <a class="nav-item nav-link" href="# ">Streets</a>
-                        <a class="nav-item nav-link" href="# ">Technology</a>
-                        <a class="nav-item nav-link" href="# ">Travel</a>
-                        <a class="nav-item nav-link" href="# ">Textures</a>
-                        <a class="nav-item nav-link" href="# ">Business</a>
-                        <a class="nav-item nav-link" href="# ">Animals</a>
-                        <a class="nav-item nav-link" href="# ">Food</a>
-                        <a class="nav-item nav-link" href="# ">Athletics</a>
-
+                        <Link to="/nature" class="nav-item nav-link" >Nature</Link>
+                        <Link to="/people" class="nav-item nav-link" >People</Link>
+                        <Link to="/architecture" class="nav-item nav-link" >Architecture</Link>
+                        <Link to="/experimental" class="nav-item nav-link" >Experimental</Link>
+                        <Link to="/fashion" class="nav-item nav-link" >Fashion</Link>
+                        <Link to="/film" class="nav-item nav-link" >Film</Link>
                     </div>
                 </div>
 
@@ -236,14 +229,38 @@ function MainNavbar() {
 
                 </Modal.Header>
                 <Modal.Body>
-                    <div className="upload_modal_body">
-                        <div className="upload_modal_body_prompt">
-                            <img src="/site_elements/upload_modal_icon.png" alt="" />
-                            <p>By clicking here, you can <br/> <span>Browse</span> to choose a file.</p>
-                        </div>
-                    </div>
+                    {
+                        user ?
+                            <div>
+                                <UploadComp username={user.displayName} />
+
+                            </div> :
+                            <div>
+                                <h1>Please login or register to upload an image.</h1>
+                            </div>
+                    }
                 </Modal.Body>
                 <Modal.Footer>
+                    <div className="upload_modal_info_row">
+                        <div className="upload_modal_info_column">
+                            <ul>
+                                <li>High quality photos (at least 5MP)</li>
+                                <li>Photos are clear & original</li>
+                            </ul>
+                        </div>
+                        <div className="upload_modal_info_column">
+                            <ul>
+                                <li>Only upload photos you own the rights to</li>
+                                <li>Zero tolerance for nudity, violence or hate</li>
+                            </ul>
+                        </div>
+                        <div className="upload_modal_info_column">
+                            <ul>
+                                <li>Respect the intellectual property of others</li>
+                                <li>Read the Unsplash Terms</li>
+                            </ul>
+                        </div>
+                    </div>
 
                 </Modal.Footer>
             </Modal>

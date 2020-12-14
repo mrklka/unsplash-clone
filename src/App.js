@@ -1,58 +1,53 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import './App.css';
 import Navbar from "./components/universal/MainNavbar"
-import MainJumbotron from "./components/homepage/MainJumbotron"
-import MainGallery from "./components/homepage/MainGallery"
-import { db } from './firebase'
+import HomePage from './HomePage';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+} from "react-router-dom";
+import Nature from './components/categories/Nature';
+import People from './components/categories/People';
+import Architecture from './components/categories/Architecture';
+import Experimental from './components/categories/Experimental';
+import Fashion from './components/categories/Fashion';
+import Film from './components/categories/Film';
+
 
 function App() {
-
-  const [posts, setPosts] = useState([])
-  useEffect(() => {
-    db.collection('posts').orderBy('timestamp', 'desc').onSnapshot(snapshot => {
-      setPosts(snapshot.docs.map(doc => ({ id: doc.id, post: doc.data() })))
-    })
-  }, [])
-
-
-
 
 
   return (
     <div className="App">
-      <Navbar />
-      <MainJumbotron />
-      <div className="maingallery_row" >
-        <div className="maingallery_column">
-          {
-            posts.map(({ id, post }) => (
-              post.tag === "Nature" ?
-                <MainGallery key={id} username={post.username} tag={post.tag} timestamp={post.timestamp} imageUrl={post.imageUrl} />
-                :
-                console.log()
-            ))
-          }
-        </div>
-        <div className="maingallery_column">
-          {
-            posts.map(({ id, post }) => (
-              post.tag === "Architecture" ?
-                <MainGallery key={id} username={post.username} tag={post.tag} timestamp={post.timestamp} imageUrl={post.imageUrl} />
-                :
-                console.log()))
-          }
-        </div>
-        <div className="maingallery_column">
-          {
-            posts.map(({ id, post }) => (
-              post.tag === "People" ?
-                <MainGallery key={id} username={post.username} tag={post.tag} timestamp={post.timestamp} imageUrl={post.imageUrl} />
-                :
-                console.log()
-            ))
-          }
-        </div>
-      </div>
+      <Router>
+        <Navbar />
+
+        <Switch>
+
+          <Route path="/nature">
+            <Nature />
+          </Route>
+          <Route path="/people">
+            <People />
+          </Route>
+          <Route path="/architecture">
+            <Architecture />
+          </Route>
+          <Route path="/experimental">
+            <Experimental/>
+          </Route>
+          <Route path="/fashion">
+            <Fashion/>
+          </Route>
+          <Route path="/film">
+            <Film/>
+          </Route>
+          <Route path="/">
+            <HomePage />
+          </Route>
+        </Switch>
+      </Router>
 
     </div>
   );

@@ -16,10 +16,10 @@ class MainJumbotron extends React.Component {
 
                         <div className="jumbotron_search">
                             <form className=" form-inline my-2 my-lg-0">
-                                <button className="btn my-2 my-sm-0" type="submit">
+                                {/* <button className="btn my-2 my-sm-0" type="submit">
                                     <img src="/site_elements/nav_search_icon.png" width="18" height="18" alt="" />
 
-                                </button>
+                                </button> */}
                                 <input className="jumbotron_search_input form-control mr-sm-2" type="search" placeholder="Search free high-resolution photos" aria-label="Search"></input>
                             </form>
                         </div>

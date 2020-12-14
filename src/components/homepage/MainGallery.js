@@ -47,7 +47,18 @@ function MainGallery({ username, imageUrl, timestamp }) {
 
                 </Modal.Header>
                 <Modal.Body>
+                    {
+                        timestamp ? 
+                            <div>
                     <p className="gallery_modal_info_date"><br /><br />Published on {timestamp.toDate().toString()}</p>
+
+                            </div> :
+                            <div>
+                                    <p className="gallery_modal_info_date"><br /><br />Published on DATE UNKNOWN</p>
+
+                            </div>
+
+                    }
 
                 </Modal.Body>
                 <Modal.Footer>
