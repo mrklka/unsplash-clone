@@ -5,7 +5,7 @@ function Fashion() {
 
     const [posts, setPosts] = useState([])
     useEffect(() => {
-      db.collection('posts').orderBy('timestamp', 'desc').onSnapshot(snapshot => {
+      db.collection('posts').where("tag", "==", "Fashion").orderBy('timestamp', 'desc').onSnapshot(snapshot => {
         setPosts(snapshot.docs.map(doc => ({ id: doc.id, post: doc.data() })))
       })
     }, [])
@@ -22,7 +22,7 @@ function Fashion() {
           <div className="category_column">
             {
               posts.map(({ id, post }) => (
-                post.tag === "Fashion" ?
+                post ?
                   <MainGallery key={id} username={post.username} tag={post.tag} timestamp={post.timestamp} imageUrl={post.imageUrl} />
                   :
                   console.log()

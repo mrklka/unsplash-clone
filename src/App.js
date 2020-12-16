@@ -13,6 +13,7 @@ import Architecture from './components/categories/Architecture';
 import Experimental from './components/categories/Experimental';
 import Fashion from './components/categories/Fashion';
 import Film from './components/categories/Film';
+import Search from './components/universal/Search';
 
 
 function App() {
@@ -35,13 +36,16 @@ function App() {
             <Architecture />
           </Route>
           <Route path="/experimental">
-            <Experimental/>
+            <Experimental />
           </Route>
           <Route path="/fashion">
-            <Fashion/>
+            <Fashion />
           </Route>
           <Route path="/film">
-            <Film/>
+            <Film />
+          </Route>
+          <Route path="/image/:search">
+            <Search />
           </Route>
           <Route path="/">
             <HomePage />

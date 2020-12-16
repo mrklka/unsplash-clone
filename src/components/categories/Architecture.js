@@ -5,7 +5,7 @@ function Architecture() {
 
     const [posts, setPosts] = useState([])
     useEffect(() => {
-      db.collection('posts').orderBy('timestamp', 'desc').onSnapshot(snapshot => {
+      db.collection('posts').where("tag", "==", "Architecture").orderBy('timestamp', 'desc').onSnapshot(snapshot => {
         setPosts(snapshot.docs.map(doc => ({ id: doc.id, post: doc.data() })))
       })
     }, [])
@@ -23,7 +23,7 @@ function Architecture() {
           <div className="category_column">
             {
               posts.map(({ id, post }) => (
-                post.tag === "Architecture" ?
+                post ?
                   <MainGallery key={id} username={post.username} tag={post.tag} timestamp={post.timestamp} imageUrl={post.imageUrl} />
                   :
                   console.log()

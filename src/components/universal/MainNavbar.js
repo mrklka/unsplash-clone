@@ -5,7 +5,6 @@ import { auth } from '../../firebase'
 import { Button, Modal, Form } from "react-bootstrap"
 import UploadComp from '../homepage/UploadComp';
 import {
-
     Link
 } from "react-router-dom";
 
@@ -23,7 +22,7 @@ function MainNavbar() {
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
-    //LoginIn Modal Handle
+    //LogIn Modal Handle
     const [showLogin, setShowLogin] = useState(false);
     const handleCloseLogin = () => setShowLogin(false);
     const handleShowLogin = () => setShowLogin(true);
@@ -32,6 +31,10 @@ function MainNavbar() {
     const [showUploadModal, setUploadModal] = useState(false);
     const handleCloseUploadModal = () => setUploadModal(false);
     const handleShowUploadModal = () => setUploadModal(true);
+
+    //Search Bar Handler
+    const [searchTerm, setSearchTerm] = useState('')
+
 
     useEffect(() => {
         const unsubscribe = auth.onAuthStateChanged((authUser) => {
@@ -78,11 +81,12 @@ function MainNavbar() {
 
                 <div className="collapse navbar-collapse" id="navbarSupportedContent">
                     <form className="form-inline my-2 my-lg-0">
-                        <button className="btn  my-2 my-sm-0" type="submit">
-                            <img src="/site_elements/nav_search_icon.png" width="18" height="18" alt="" />
-
-                        </button>
-                        <input className="mainnavbar_search form-control mr-sm-2" type="search" placeholder="Search free high-resolution photos" aria-label="Search"></input>
+                        <Link to={{ pathname: `/image/${searchTerm}` }}  >
+                            <button className="btn  my-2 my-sm-0" type="submit">
+                                <img src="/site_elements/nav_search_icon.png" width="18" height="18" alt="" />
+                            </button>
+                        </Link>
+                        <input onChange={event => setSearchTerm(event.target.value)} value={searchTerm} className="mainnavbar_search form-control mr-sm-2" type="search" placeholder="Search free high-resolution photos" aria-label="Search"></input>
                     </form>
 
                     <ul className="navbar-nav mr-auto">
@@ -159,6 +163,8 @@ function MainNavbar() {
                         <Link to="/experimental" class="nav-item nav-link" >Experimental</Link>
                         <Link to="/fashion" class="nav-item nav-link" >Fashion</Link>
                         <Link to="/film" class="nav-item nav-link" >Film</Link>
+                        <Link to="/search" class="nav-item nav-link" >Search</Link>
+
                     </div>
                 </div>
 
